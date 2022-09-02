@@ -2,11 +2,16 @@
   margin: 0;
   padding: 0;
 }
-.Header {
-  text-align: center;
+
+.App {
+  display: flex;
 }
 
-.Subheader > h2 {
-  font-size: 14px;
+.Form-container {
+  flex: 0 0 50%;
 }
 
+.Template-container {
+  /* aspect-ratio: 1 / 1.4142; */
+  flex: 0 0 50%;
+}

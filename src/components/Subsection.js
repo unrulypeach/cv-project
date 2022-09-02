@@ -1,12 +1,14 @@
-import React, { Component } from "react";
-import SubHeader from "./SubHeader";
+/* eslint-disable react/prop-types */
+import React, { Component } from 'react';
+import SubHeader from './SubHeader';
 
 export default class Subsection extends Component {
   render() {
-    return(
+    const { title } = this.props;
+    return (
       <div>
-        <SubHeader title={this.props.title} />
+        <SubHeader title={title} />
       </div>
-    )
+    );
   }
 }

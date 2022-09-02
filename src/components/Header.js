@@ -1,13 +1,21 @@
-import React, { Component } from "react";
+/* eslint-disable react/prop-types */
+import React, { Component } from 'react';
 
 export default class Header extends Component {
   render() {
-    return(
+    const {
+      first, last, email, github,
+    } = this.props;
+    return (
       <div className="Header">
-        <h1>{this.props.first} {this.props.last}</h1>
-        <span>{this.props.github} </span>
-        <span>{this.props.email}</span>
+        <h1>
+          {first}
+          {' '}
+          {last}
+        </h1>
+        <span>{email}</span>
+        <span>{github}</span>
       </div>
-    )
+    );
   }
 }
