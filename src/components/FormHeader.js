@@ -20,12 +20,15 @@ export default class FormHeader extends Component {
 
   render() {
     return (
-      <form className="form-piece-container">
-        {this.renderHeaderPc('first')}
-        {this.renderHeaderPc('last')}
-        {this.renderHeaderPc('email')}
-        {this.renderHeaderPc('github')}
-      </form>
+      <div>
+        <h2> Identification </h2>
+        <form className="form-piece-container">
+          {this.renderHeaderPc('first')}
+          {this.renderHeaderPc('last')}
+          {this.renderHeaderPc('email')}
+          {this.renderHeaderPc('github')}
+        </form>
+      </div>
     );
   }
 }

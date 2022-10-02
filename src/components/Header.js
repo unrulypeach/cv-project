@@ -13,7 +13,10 @@ export default class Header extends Component {
           {' '}
           {last}
         </h1>
-        <span>{email}</span>
+        <span>
+          {email}
+          {' '}
+        </span>
         <span>{github}</span>
       </div>
     );

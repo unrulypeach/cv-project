@@ -6,30 +6,42 @@ export default class FormSkills extends Component {
   renderSkills() {
     const { currState, changeFunc } = this.props;
     return (
-      <form className="form-piece-container">
-        <label>
-          Title
-          <input
-            type="text"
-            value={currState.example}
-            onChange={(e) => changeFunc(e, 'title')}
-          />
-        </label>
-        <label>
-          Description
-          <input
-            type="text"
-            value={currState.example}
-            onChange={(e) => changeFunc(e, 'descript')}
-          />
-        </label>
-      </form>
+      <div>
+        <form className="form-piece-container">
+          <label>
+            Title
+            <input
+              type="text"
+              value={currState.title}
+              onChange={(e) => changeFunc(e, 'title')}
+            />
+          </label>
+          <label>
+            Description
+            <input
+              type="text"
+              value={currState.descript}
+              onChange={(e) => changeFunc(e, 'descript')}
+            />
+          </label>
+        </form>
+      </div>
     );
   }
 
   render() {
+    const { addChild } = this.props;
     return (
-      this.renderSkills()
+      <>
+        <h2>Skills</h2>
+        {this.renderSkills()}
+        <button
+          type="button"
+          onClick={addChild}
+        >
+          +
+        </button>
+      </>
     );
   }
 }

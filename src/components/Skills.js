@@ -6,7 +6,9 @@ export default class Skills extends Component {
     const { skill } = this.props;
     return (
       <div>
-        {skill.example}
+        {skill.title}
+        {' - '}
+        {skill.descript}
       </div>
     );
   }
