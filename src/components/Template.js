@@ -5,6 +5,7 @@ import '../styles/Template.css';
 import Header from './Header';
 import Subsection from './Subsection';
 import Skills from './Skills';
+import Education from './Education';
 
 export default class Template extends Component {
   render() {
@@ -17,8 +18,10 @@ export default class Template extends Component {
           email={currState.email}
           github={currState.github}
         />
-        <Subsection className="Education" title="Education" />
-        <Subsection title="Skills" />
+        <Education
+          title="Education"
+          info={currState.education}
+        />
         <Skills
           skill={currState.skills}
         />

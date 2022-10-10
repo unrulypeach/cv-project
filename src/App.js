@@ -3,11 +3,7 @@
 import './styles/App.css';
 import React, { Component } from 'react';
 import Template from './components/Template';
-import FormHeader from './components/FormHeader';
-import FormSkills from './components/FormSkills';
-import FormEducation from './components/FormEducation';
-import FormExperience from './components/FormExperience';
-import FormProjects from './components/FormProjects';
+import Form from './components/Form';
 
 export default class App extends Component {
   constructor(props) {
@@ -71,7 +67,7 @@ export default class App extends Component {
     });
   }
 
-  handleObjChange(ev, key) {
+  handleSkillChange(ev, key) {
     this.setState(({ skills }) => ({
       skills: {
         ...skills,
@@ -106,33 +102,17 @@ export default class App extends Component {
     for (let i = 0; i < this.state.skills.numChildren; i += 1) {
       children.push(<FormSkills />);
     } */
-    const {
-      education, skills, experience, projects,
-    } = this.state;
+
     return (
       <div className="App">
         <h1> Resume Template</h1>
-        <div className="Form">
-          <FormHeader
-            changeFunc={(ev, key) => this.handleChange(ev, key)}
-            currState={this.state}
-          />
-          <FormEducation
-            currState={education}
-          />
-          <FormSkills
-            changeFunc={(ev, key) => this.handleObjChange(ev, key)}
-            addChild={() => this.onAddChild()}
-            newObj={(ev, key) => this.handleNewObj(ev, key)}
-            currState={skills}
-          />
-          <FormExperience
-            currState={experience}
-          />
-          <FormProjects
-            currState={projects}
-          />
-        </div>
+        <Form
+          changeFunc={(ev, key) => this.handleChange(ev, key)}
+          changeSkillFunc={(ev, key) => this.handleSkillChange(ev, key)}
+          addChild={() => this.onAddChild()}
+          newObj={(ev, key) => this.handleNewObj(ev, key)}
+          currState={this.state}
+        />
         <Template
           currState={this.state}
         />

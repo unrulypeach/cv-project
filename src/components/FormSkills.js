@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 export default class FormSkills extends Component {
   renderSkills() {
-    const { currState, changeFunc } = this.props;
+    const { currState } = this.props;
     return (
       <div>
         <form className="form-piece-container">
@@ -13,7 +13,7 @@ export default class FormSkills extends Component {
             <input
               type="text"
               value={currState.title}
-              onChange={(e) => changeFunc(e, 'title')}
+              onChange={(e) => currState.changeFunc(e, 'title')}
             />
           </label>
           <label>
@@ -21,7 +21,7 @@ export default class FormSkills extends Component {
             <input
               type="text"
               value={currState.descript}
-              onChange={(e) => changeFunc(e, 'descript')}
+              onChange={(e) => currState.changeFunc(e, 'descript')}
             />
           </label>
         </form>

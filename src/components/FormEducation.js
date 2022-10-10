@@ -1,10 +1,12 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 
 export default class FormEducation extends Component {
   renderEducation() {
-    const { currState } = this.props;
+    const { education } = this.props;
 
     return (
       <form className="form-piece-container">
@@ -12,49 +14,49 @@ export default class FormEducation extends Component {
           School
           <input
             type="text"
-            value={currState[0].name}
+            value={education[0].name}
           />
         </label>
         <label>
           Degree
           <input
             type="text"
-            value={currState[0].degree}
+            value={education[0].degree}
           />
         </label>
         <label>
           City
           <input
             type="text"
-            value={currState[0].city}
+            value={education[0].city}
           />
         </label>
         <label>
           State
           <input
             type="text"
-            value={currState[0].state}
+            value={education[0].state}
           />
         </label>
         <label>
           Start Date
           <input
             type="text"
-            value={currState[0].start}
+            value={education[0].start}
           />
         </label>
         <label>
           End Date
           <input
             type="text"
-            value={currState[0].end}
+            value={education[0].end}
           />
         </label>
         <label>
           Expected End Date
           <input
             type="text"
-            value={currState[0].expectedEnd}
+            value={education[0].expectedEnd}
           />
         </label>
       </form>

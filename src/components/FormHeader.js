@@ -5,14 +5,14 @@ import '../styles/Form.css';
 
 export default class FormHeader extends Component {
   renderHeaderPc(name) {
-    const { currState, changeFunc } = this.props;
+    const { header } = this.props;
     return (
       <label className="form-piece">
         {name}
         <input
           type="text"
-          value={currState[name]}
-          onChange={(e) => changeFunc(e, name)}
+          value={header[name]}
+          onChange={(e) => header.changeFunc(e, name)}
         />
       </label>
     );
