@@ -14,49 +14,56 @@ export default class FormEducation extends Component {
           School
           <input
             type="text"
-            value={education[0].name}
+            value={education.name}
+            onChange={(e) => this.props.changeFunction(e, 'name')}
           />
         </label>
         <label>
           Degree
           <input
             type="text"
-            value={education[0].degree}
+            value={education.degree}
+            onChange={(e) => this.props.changeFunction(e, 'degree')}
           />
         </label>
         <label>
           City
           <input
             type="text"
-            value={education[0].city}
+            value={education.city}
+            onChange={(e) => this.props.changeFunction(e, 'city')}
           />
         </label>
         <label>
           State
           <input
             type="text"
-            value={education[0].state}
+            value={education.state}
+            onChange={(e) => this.props.changeFunction(e, 'state')}
           />
         </label>
         <label>
           Start Date
           <input
             type="text"
-            value={education[0].start}
+            value={education.start}
+            onChange={(e) => this.props.changeFunction(e, 'start')}
           />
         </label>
         <label>
           End Date
           <input
             type="text"
-            value={education[0].end}
+            value={education.end}
+            onChange={(e) => this.props.changeFunction(e, 'end')}
           />
         </label>
         <label>
           Expected End Date
           <input
             type="text"
-            value={education[0].expectedEnd}
+            value={education.expectedEnd}
+            onChange={(e) => this.props.changeFunction(e, 'expectedEnd')}
           />
         </label>
       </form>

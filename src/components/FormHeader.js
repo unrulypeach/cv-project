@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
@@ -12,7 +13,7 @@ export default class FormHeader extends Component {
         <input
           type="text"
           value={header[name]}
-          onChange={(e) => header.changeFunc(e, name)}
+          onChange={(e) => this.props.changeFunction(e, name)}
         />
       </label>
     );

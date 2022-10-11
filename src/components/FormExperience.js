@@ -11,49 +11,49 @@ export default class FormExperience extends Component {
           Employer
           <input
             type="text"
-            value={currState[0].name}
+            value={currState.name}
           />
         </label>
         <label>
           Position
           <input
             type="text"
-            value={currState[0].position}
+            value={currState.position}
           />
         </label>
         <label>
           City
           <input
             type="text"
-            value={currState[0].city}
+            value={currState.city}
           />
         </label>
         <label>
           State
           <input
             type="text"
-            value={currState[0].state}
+            value={currState.state}
           />
         </label>
         <label>
           Start Date
           <input
             type="text"
-            value={currState[0].start}
+            value={currState.start}
           />
         </label>
         <label>
           End Date
           <input
             type="text"
-            value={currState[0].end}
+            value={currState.end}
           />
         </label>
         <label>
           Description
           <input
             type="text"
-            value={currState[0].points[0]}
+            value={currState.points[0]}
           />
         </label>
       </form>

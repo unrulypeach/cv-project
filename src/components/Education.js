@@ -26,7 +26,12 @@ export default class Education extends Component {
           </span>
         </div>
         <div>
-          {obj.degree}
+          <span>
+            {obj.degree}
+          </span>
+          <span>
+            {obj.expectedEnd}
+          </span>
         </div>
       </>
     );
@@ -38,7 +43,7 @@ export default class Education extends Component {
       <>
         <h2 className="templateTitle"> Education </h2>
         <hr />
-        {this.renderEducationTemp(info[0])}
+        {this.renderEducationTemp(info)}
       </>
     );
   }
