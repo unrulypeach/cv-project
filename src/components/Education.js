@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 export default class Education extends Component {
   // eslint-disable-next-line class-methods-use-this
-  renderEducationTemp(obj) {
+  renderEducation(obj) {
     return (
       <>
         <div>
@@ -38,12 +38,14 @@ export default class Education extends Component {
   }
 
   render() {
-    const { info } = this.props;
+    const { education } = this.props;
+    const contents = [];
+    education.forEach((ele) => contents.push(this.renderEducation(ele)));
     return (
       <>
         <h2 className="templateTitle"> Education </h2>
         <hr />
-        {this.renderEducationTemp(info)}
+        {contents}
       </>
     );
   }

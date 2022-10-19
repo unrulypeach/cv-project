@@ -23,6 +23,7 @@ export default class FormHeader extends Component {
     return (
       <div>
         <h2> Identification </h2>
+        <hr />
         <form className="form-piece-container">
           {this.renderHeaderPc('first')}
           {this.renderHeaderPc('last')}

@@ -20,10 +20,10 @@ export default class Template extends Component {
         />
         <Education
           title="Education"
-          info={currState.education}
+          education={currState.education}
         />
         <Skills
-          skill={currState.skills}
+          skills={currState.skills}
         />
         <Subsection title="Experience" />
       </div>

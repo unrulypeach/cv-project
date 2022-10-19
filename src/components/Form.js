@@ -29,12 +29,15 @@ export default class Form extends Component {
         <FormEducation
           education={this.props.currState.education}
           changeFunction={this.props.changeEduFunc}
+          togEdu={this.props.toggleEduDisplay}
+          eduStatus={this.props.currState.showEducation}
+          newEdu={this.props.newEdu}
         />
         <FormSkills
           changeFunc={this.props.changeSkillFunc}
-          addChild={this.props.addChild}
           newSkill={this.props.newSkill}
-          // newObj={(ev, key) => this.handleNewObj(ev, key)}
+          togSkill={this.props.toggleSkillDisplay}
+          skillStatus={this.props.currState.showSkills}
           currState={this.props.currState.skills}
         />
         <FormExperience

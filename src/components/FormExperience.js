@@ -62,10 +62,11 @@ export default class FormExperience extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <h2>Experience</h2>
+        <hr />
         {this.renderExperience()}
-      </>
+      </div>
     );
   }
 }

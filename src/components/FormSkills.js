@@ -27,12 +27,12 @@ export default class FormSkills extends Component {
             />
           </label>
         </form>
+        <hr />
       </div>
     );
   }
 
   render() {
-    // const { addChild } = this.props;
     const children = [];
 
     for (let i = 0; i < this.props.currState.length; i += 1) {
@@ -40,16 +40,25 @@ export default class FormSkills extends Component {
     }
 
     return (
-      <>
+      <div id="formSkills" className="form-section">
         <h2>Skills</h2>
-        {children}
+        <hr />
         <button
           type="button"
-          onClick={(e) => { this.props.newSkill(e, this.props.currState.length + 1); }}
+          onClick={() => this.props.togSkill()}
         >
-          +
+          {this.props.skillStatus ? 'hide' : 'show'}
         </button>
-      </>
+        <div className="section-content" style={{ display: this.props.skillStatus ? 'block' : 'none' }}>
+          {children}
+          <button
+            type="button"
+            onClick={() => { this.props.newSkill(this.props.currState.length); }}
+          >
+            +
+          </button>
+        </div>
+      </div>
     );
   }
 }

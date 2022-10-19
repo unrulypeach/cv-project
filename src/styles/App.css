@@ -4,11 +4,19 @@
 }
 
 .App {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
+  grid-template-rows: 50px;
 }
 
-.Form-container {
-  flex: 0 0 50%;
+.header{
+  text-align: center;
+  grid-area: 1/ 1/ 1/ 3;
+}
+
+.Form {
+  padding: 15px;
 }
 
 .Template-container {

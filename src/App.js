@@ -11,20 +11,24 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showSkills: true,
+      showEducation: true,
       first: 'First',
       last: 'Last',
       email: 'email@email.com',
       github: 'email@github.com',
-      education: {
-        id: 0,
-        name: 'University Example',
-        city: 'city',
-        state: 'state',
-        degree: 'degree name',
-        start: 'September 2000',
-        end: 'Present',
-        expectedEnd: null,
-      },
+      education: [
+        {
+          id: 0,
+          name: 'University Example',
+          city: 'city',
+          state: 'state',
+          degree: 'degree name',
+          start: 'September 2000',
+          end: 'Present',
+          expectedEnd: null,
+        },
+      ],
       experience: {
         id: 0,
         name: 'Googlo',
@@ -44,11 +48,6 @@ export default class App extends Component {
           descriptions: ['one', 'two'],
         },
       ],
-      // skills: {
-      //   numChildren: 0,
-      //   title: 'title example',
-      //   descript: 'description example',
-      // },
       skills: [
         {
           id: 0,
@@ -70,15 +69,6 @@ export default class App extends Component {
     });
   }
 
-  // handleSkillChange(ev, key) {
-  //   this.setState(({ skills }) => ({
-  //     skills: {
-  //       ...skills,
-  //       [key]: ev.target.value,
-  //     },
-  //   }));
-  // }
-
   handleSkillChange(ev, key, id) {
     const skills = [...this.state.skills];
     const item = { ...skills[id] };
@@ -87,13 +77,12 @@ export default class App extends Component {
     this.setState({ skills });
   }
 
-  handleEducationChange(ev, key) {
-    this.setState(({ education }) => ({
-      education: {
-        ...education,
-        [key]: ev.target.value,
-      },
-    }));
+  handleEducationChange(ev, key, id) {
+    const education = [...this.state.education];
+    const item = { ...education[id] };
+    item[key] = ev.target.value;
+    education[id] = item;
+    this.setState({ education });
   }
 
   newSkill(ind) {
@@ -103,15 +92,41 @@ export default class App extends Component {
     });
   }
 
+  newEdu(ind) {
+    this.setState({
+      education: [...this.state.education, {
+        id: ind,
+        name: '',
+        city: '',
+        state: '',
+        degree: '',
+        start: '',
+        end: '',
+        expectedEnd: null,
+      }],
+    });
+  }
+
+  toggleSkills() {
+    this.setState(({ showSkills }) => ({ showSkills: !showSkills }));
+  }
+
+  toggleEducation() {
+    this.setState(({ showEducation }) => ({ showEducation: !showEducation }));
+  }
+
   render() {
     return (
       <div className="App">
-        <h1> Resume Template</h1>
+        <h1 className="header"> Resume Template</h1>
         <Form
           changeFunc={(ev, key) => this.handleChange(ev, key)}
           changeSkillFunc={(ev, key, ind) => this.handleSkillChange(ev, key, ind)}
-          changeEduFunc={(ev, key) => this.handleEducationChange(ev, key)}
+          changeEduFunc={(ev, key, ind) => this.handleEducationChange(ev, key, ind)}
           newSkill={(ind) => this.newSkill(ind)}
+          newEdu={(ind) => this.newEdu(ind)}
+          toggleSkillDisplay={() => this.toggleSkills()}
+          toggleEduDisplay={() => this.toggleEducation()}
           currState={this.state}
         />
         <Template
