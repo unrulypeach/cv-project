@@ -80,14 +80,16 @@ export default class FormEducation extends Component {
 
     return (
       <div id="formEducation" className="form-section">
-        <h2>Education</h2>
+        <div className="header-container">
+          <h2>Education</h2>
+          <button
+            type="button"
+            onClick={() => this.props.togEdu()}
+          >
+            {this.props.eduStatus ? 'hide' : 'show'}
+          </button>
+        </div>
         <hr />
-        <button
-          type="button"
-          onClick={() => this.props.togEdu()}
-        >
-          {this.props.eduStatus ? 'hide' : 'show'}
-        </button>
         <div className="section-content" style={{ display: this.props.eduStatus ? 'block' : 'none' }}>
           {children}
           <button

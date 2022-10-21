@@ -13,6 +13,7 @@ export default class App extends Component {
     this.state = {
       showSkills: true,
       showEducation: true,
+      showExperience: true,
       first: 'First',
       last: 'Last',
       email: 'email@email.com',
@@ -97,6 +98,14 @@ export default class App extends Component {
     this.setState({ education });
   }
 
+  handleExperienceChange(ev, key, id) {
+    const experience = [...this.state.experience];
+    const item = { ...experience[id] };
+    item[key] = ev.target.value;
+    experience[id] = item;
+    this.setState({ experience });
+  }
+
   newSkill(ind) {
     this.setState({
       // eslint-disable-next-line react/no-access-state-in-setstate
@@ -119,12 +128,42 @@ export default class App extends Component {
     });
   }
 
+  newExp(ind) {
+    this.setState({
+      experience: [
+        ...this.state.experience,
+        {
+          id: ind,
+          name: '',
+          position: '',
+          city: '',
+          state: '',
+          start: '',
+          end: '',
+          points: [],
+        },
+      ],
+    });
+  }
+
+  newExpDescription(id) {
+    const experience = [...this.state.experience];
+    const item = experience[id];
+    item.points.push('');
+    experience[id] = item;
+    this.setState({ experience });
+  }
+
   toggleSkills() {
     this.setState(({ showSkills }) => ({ showSkills: !showSkills }));
   }
 
   toggleEducation() {
     this.setState(({ showEducation }) => ({ showEducation: !showEducation }));
+  }
+
+  toggleExperience() {
+    this.setState(({ showExperience }) => ({ showExperience: !showExperience }));
   }
 
   render() {
@@ -135,10 +174,14 @@ export default class App extends Component {
           changeFunc={(ev, key) => this.handleChange(ev, key)}
           changeSkillFunc={(ev, key, ind) => this.handleSkillChange(ev, key, ind)}
           changeEduFunc={(ev, key, ind) => this.handleEducationChange(ev, key, ind)}
+          changeExpFunc={(ev, key, ind) => this.handleExperienceChange(ev, key, ind)}
           newSkill={(ind) => this.newSkill(ind)}
           newEdu={(ind) => this.newEdu(ind)}
+          newExp={(ind) => this.newExp(ind)}
+          newExpDescript={(ind) => this.newExpDescription(ind)}
           toggleSkillDisplay={() => this.toggleSkills()}
           toggleEduDisplay={() => this.toggleEducation()}
+          toggleExpDisplay={() => this.toggleExperience()}
           currState={this.state}
         />
         <Template

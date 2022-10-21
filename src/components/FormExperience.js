@@ -13,6 +13,7 @@ export default class FormExperience extends Component {
         <input
           type="text"
           value={arrItem}
+          // onChange={(e) => this.props.changeFunc(e, 'points', obj.id)}
         />
       </label>
     );
@@ -32,6 +33,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.name}
+            onChange={(e) => this.props.changeFunc(e, 'name', obj.id)}
           />
         </label>
         <label>
@@ -39,6 +41,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.position}
+            onChange={(e) => this.props.changeFunc(e, 'position', obj.id)}
           />
         </label>
         <label>
@@ -46,6 +49,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.city}
+            onChange={(e) => this.props.changeFunc(e, 'city', obj.id)}
           />
         </label>
         <label>
@@ -53,6 +57,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.state}
+            onChange={(e) => this.props.changeFunc(e, 'state', obj.id)}
           />
         </label>
         <label>
@@ -60,6 +65,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.start}
+            onChange={(e) => this.props.changeFunc(e, 'start', obj.id)}
           />
         </label>
         <label>
@@ -67,14 +73,16 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.end}
+            onChange={(e) => this.props.changeFunc(e, 'end', obj.id)}
           />
         </label>
         {points}
         <button
           type="button"
           className="fullLength-btn"
+          onClick={() => this.props.newDescript(obj.id)}
         >
-          add descriptions
+          add description
         </button>
       </form>
     );
@@ -91,15 +99,24 @@ export default class FormExperience extends Component {
 
     return (
       <div id="formExperience" className="form-section">
-        <h2>Experience</h2>
+        <div className="header-container">
+          <h2>Experience</h2>
+          <button
+            type="button"
+            onClick={() => this.props.togExp()}
+          >
+            {this.props.expStatus ? 'hide' : 'show'}
+          </button>
+        </div>
         <hr />
-        <button
-          type="button"
-        >
-          show/hide
-        </button>
-        <div className="section-content">
+        <div className="section-content" style={{ display: this.props.expStatus ? 'block' : 'none' }}>
           {children}
+          <button
+            type="button"
+            onClick={() => this.props.newExp(this.props.currState.length)}
+          >
+            +
+          </button>
         </div>
       </div>
     );

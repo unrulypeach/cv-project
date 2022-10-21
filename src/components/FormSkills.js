@@ -39,19 +39,21 @@ export default class FormSkills extends Component {
 
     return (
       <div id="formSkills" className="form-section">
-        <h2>Skills</h2>
+        <div className="header-container">
+          <h2>Skills</h2>
+          <button
+            type="button"
+            onClick={() => this.props.togSkill()}
+          >
+            {this.props.skillStatus ? 'hide' : 'show'}
+          </button>
+        </div>
         <hr />
-        <button
-          type="button"
-          onClick={() => this.props.togSkill()}
-        >
-          {this.props.skillStatus ? 'hide' : 'show'}
-        </button>
         <div className="section-content" style={{ display: this.props.skillStatus ? 'block' : 'none' }}>
           {children}
           <button
             type="button"
-            onClick={() => { this.props.newSkill(this.props.currState.length); }}
+            onClick={() => this.props.newSkill(this.props.currState.length)}
           >
             +
           </button>
