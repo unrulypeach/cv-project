@@ -9,67 +9,65 @@ export default class FormEducation extends Component {
     const { education } = this.props;
 
     return (
-      <div key={ind}>
-        <form className="form-piece-container">
-          <label>
-            School
-            <input
-              type="text"
-              value={education[ind].name}
-              onChange={(e) => this.props.changeFunction(e, 'name', ind)}
-            />
-          </label>
-          <label>
-            Degree
-            <input
-              type="text"
-              value={education[ind].degree}
-              onChange={(e) => this.props.changeFunction(e, 'degree', ind)}
-            />
-          </label>
-          <label>
-            City
-            <input
-              type="text"
-              value={education[ind].city}
-              onChange={(e) => this.props.changeFunction(e, 'city', ind)}
-            />
-          </label>
-          <label>
-            State
-            <input
-              type="text"
-              value={education[ind].state}
-              onChange={(e) => this.props.changeFunction(e, 'state', ind)}
-            />
-          </label>
-          <label>
-            Start Date
-            <input
-              type="text"
-              value={education[ind].start}
-              onChange={(e) => this.props.changeFunction(e, 'start', ind)}
-            />
-          </label>
-          <label>
-            End Date
-            <input
-              type="text"
-              value={education[ind].end}
-              onChange={(e) => this.props.changeFunction(e, 'end', ind)}
-            />
-          </label>
-          <label>
-            Expected End Date
-            <input
-              type="text"
-              value={education[ind].expectedEnd}
-              onChange={(e) => this.props.changeFunction(e, 'expectedEnd', ind)}
-            />
-          </label>
-        </form>
-        <hr />
-      </div>
+      <form key={ind} className="form-piece-container">
+        <label>
+          School
+          <input
+            type="text"
+            value={education[ind].name}
+            onChange={(e) => this.props.changeFunction(e, 'name', ind)}
+          />
+        </label>
+        <label>
+          Degree
+          <input
+            type="text"
+            value={education[ind].degree}
+            onChange={(e) => this.props.changeFunction(e, 'degree', ind)}
+          />
+        </label>
+        <label>
+          City
+          <input
+            type="text"
+            value={education[ind].city}
+            onChange={(e) => this.props.changeFunction(e, 'city', ind)}
+          />
+        </label>
+        <label>
+          State
+          <input
+            type="text"
+            value={education[ind].state}
+            onChange={(e) => this.props.changeFunction(e, 'state', ind)}
+          />
+        </label>
+        <label>
+          Start Date
+          <input
+            type="text"
+            value={education[ind].start}
+            onChange={(e) => this.props.changeFunction(e, 'start', ind)}
+          />
+        </label>
+        <label>
+          End Date
+          <input
+            type="text"
+            value={education[ind].end}
+            onChange={(e) => this.props.changeFunction(e, 'end', ind)}
+          />
+        </label>
+        <label>
+          Expected End Date
+          <input
+            type="text"
+            value={education[ind].expectedEnd}
+            onChange={(e) => this.props.changeFunction(e, 'expectedEnd', ind)}
+          />
+        </label>
+        {/* <hr /> */}
+      </form>
     );
   }
 

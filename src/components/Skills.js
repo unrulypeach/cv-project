@@ -5,12 +5,16 @@ import React, { Component } from 'react';
 export default class Skills extends Component {
   renderSkill(skillObj) {
     return (
-      <div key={skillObj.id}>
-        {skillObj.title}
-        {' '}
-        -
-        {' '}
-        {skillObj.descript}
+      <div key={skillObj.id} className="tempSkillsItem component">
+        <span className="skills title">
+          {skillObj.title}
+        </span>
+        <span>
+          {' - '}
+        </span>
+        <span className="skills descript">
+          {skillObj.descript}
+        </span>
       </div>
     );
   }
@@ -18,12 +22,10 @@ export default class Skills extends Component {
   render() {
     const { skills } = this.props;
     const contents = [];
-    // for (let i=0; i<skills.length; i+=1){
-    // }
     skills.forEach((ele) => contents.push(this.renderSkill(ele)));
     return (
-      <div>
-        <h2 className="templateTitle"> Skills </h2>
+      <div id="tempSkills">
+        <h2 className="templateTitle"> SKILLS </h2>
         <hr />
         {contents}
       </div>

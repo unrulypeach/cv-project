@@ -7,17 +7,17 @@ export default class Header extends Component {
       first, last, email, github,
     } = this.props;
     return (
-      <div className="Header">
+      <div className="tempHeader">
         <h1>
           {first}
           {' '}
           {last}
         </h1>
-        <span>
+        <span className="sm">
           {email}
           {' '}
+          {github}
         </span>
-        <span>{github}</span>
       </div>
     );
   }

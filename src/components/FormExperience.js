@@ -1,71 +1,106 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 
 export default class FormExperience extends Component {
-  renderExperience() {
-    const { currState } = this.props;
+  // eslint-disable-next-line react/no-unused-class-component-methods
+  renderDescriptionInput(arrItem) {
+    return (
+      <label>
+        Description
+        <input
+          type="text"
+          value={arrItem}
+        />
+      </label>
+    );
+  }
+
+  renderExperience(obj) {
+    const points = [];
+
+    for (let i = 0; i < obj.points.length; i += 1) {
+      points.push(this.renderDescriptionInput(obj.points[i]));
+    }
+
     return (
       <form className="form-piece-container">
         <label>
           Employer
           <input
             type="text"
-            value={currState.name}
+            value={obj.name}
           />
         </label>
         <label>
           Position
           <input
             type="text"
-            value={currState.position}
+            value={obj.position}
           />
         </label>
         <label>
           City
           <input
             type="text"
-            value={currState.city}
+            value={obj.city}
           />
         </label>
         <label>
           State
           <input
             type="text"
-            value={currState.state}
+            value={obj.state}
           />
         </label>
         <label>
           Start Date
           <input
             type="text"
-            value={currState.start}
+            value={obj.start}
           />
         </label>
         <label>
           End Date
           <input
             type="text"
-            value={currState.end}
+            value={obj.end}
           />
         </label>
-        <label>
-          Description
-          <input
-            type="text"
-            value={currState.points[0]}
-          />
-        </label>
+        {points}
+        <button
+          type="button"
+          className="fullLength-btn"
+        >
+          add descriptions
+        </button>
       </form>
     );
   }
 
   render() {
+    const children = [];
+
+    // for (let i = 0; i < this.props.currState.length; i += 1) {
+    //   children.push(this.renderExperience(this.props.currState[i]));
+    // }
+    const { currState } = this.props;
+    currState.forEach((ele) => children.push(this.renderExperience(ele)));
+
     return (
-      <div>
+      <div id="formExperience" className="form-section">
         <h2>Experience</h2>
         <hr />
-        {this.renderExperience()}
+        <button
+          type="button"
+        >
+          show/hide
+        </button>
+        <div className="section-content">
+          {children}
+        </div>
       </div>
     );
   }

@@ -12,8 +12,8 @@ export default class FormHeader extends Component {
         {name}
         <input
           type="text"
-          value={header[name]}
-          onChange={(e) => this.props.changeFunction(e, name)}
+          value={header[name.toLowerCase()]}
+          onChange={(e) => this.props.changeFunction(e, name.toLowerCase())}
         />
       </label>
     );
@@ -21,14 +21,14 @@ export default class FormHeader extends Component {
 
   render() {
     return (
-      <div>
+      <div id="formHeader">
         <h2> Identification </h2>
         <hr />
         <form className="form-piece-container">
-          {this.renderHeaderPc('first')}
-          {this.renderHeaderPc('last')}
-          {this.renderHeaderPc('email')}
-          {this.renderHeaderPc('github')}
+          {this.renderHeaderPc('First')}
+          {this.renderHeaderPc('Last')}
+          {this.renderHeaderPc('Email')}
+          {this.renderHeaderPc('Github')}
         </form>
       </div>
     );

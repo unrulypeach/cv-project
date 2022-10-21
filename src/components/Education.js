@@ -5,35 +5,34 @@ export default class Education extends Component {
   // eslint-disable-next-line class-methods-use-this
   renderEducation(obj) {
     return (
-      <>
-        <div>
-          <span>
+      <div className="tempEduItem component">
+        <div className="tempItem-flexContainer">
+          <span className="edu title">
             {obj.name}
-            {' '}
-            |
-            {' '}
+          </span>
+          <span className="edu title">
             {obj.city}
             ,
             {' '}
             {obj.state}
           </span>
-          <span>
+        </div>
+        <div className="tempItem-flexContainer">
+          <span className="sm italic">
+            {obj.degree}
+          </span>
+          <span className="sm">
             {obj.start}
             {' '}
             -
             {' '}
             {obj.end}
           </span>
-        </div>
-        <div>
-          <span>
-            {obj.degree}
-          </span>
-          <span>
+          {/* <span>
             {obj.expectedEnd}
-          </span>
+          </span> */}
         </div>
-      </>
+      </div>
     );
   }
 
@@ -42,11 +41,11 @@ export default class Education extends Component {
     const contents = [];
     education.forEach((ele) => contents.push(this.renderEducation(ele)));
     return (
-      <>
-        <h2 className="templateTitle"> Education </h2>
+      <div id="tempEdu">
+        <h2 className="templateTitle"> EDUCATION </h2>
         <hr />
         {contents}
-      </>
+      </div>
     );
   }
 }

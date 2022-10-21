@@ -1,4 +1,31 @@
+.Form {
+  padding: 15px;
+}
+
 .form-piece-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.form-piece-container label {
+  display: grid;
+
+  padding: 5px 5px;
+}
+
+.fullLength-btn {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  grid-area: 6/1/6/3;
+}
+
+.fullLength-btn::after{
+  content: '';
+  position: absolute;
+  margin-top: 24px;
+  left: 10px;
+  height: 1px;
+  background: #000;
+  width: 65%;
+  border-bottom: solid 1px #000;
 }

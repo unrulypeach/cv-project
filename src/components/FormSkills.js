@@ -7,28 +7,26 @@ export default class FormSkills extends Component {
   renderSkills(ind) {
     const { currState } = this.props;
     return (
-      <div key={ind}>
-        <form className="form-piece-container">
-          <label>
-            Title
-            <input
-              type="text"
-              value={currState[ind].title}
+      <form key={ind} className="form-piece-container">
+        <label>
+          Title
+          <input
+            type="text"
+            value={currState[ind].title}
               // onCHange = find index and change title
-              onChange={(e) => this.props.changeFunc(e, 'title', ind)}
-            />
-          </label>
-          <label>
-            Description
-            <input
-              type="text"
-              value={currState[ind].descript}
-              onChange={(e) => this.props.changeFunc(e, 'descript', ind)}
-            />
-          </label>
-        </form>
-        <hr />
-      </div>
+            onChange={(e) => this.props.changeFunc(e, 'title', ind)}
+          />
+        </label>
+        <label>
+          Description
+          <input
+            type="text"
+            value={currState[ind].descript}
+            onChange={(e) => this.props.changeFunc(e, 'descript', ind)}
+          />
+        </label>
+        {/* <hr /> */}
+      </form>
     );
   }
 

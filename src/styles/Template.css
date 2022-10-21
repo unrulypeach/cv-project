@@ -1,7 +1,53 @@
-.Header {
+.tempHeader {
   text-align: center;
+  padding-top: 25px;
+  padding-bottom: 15px;
 }
 
-.Subheader > h2 {
+.Template h2 {
+  font-size: 16px;
+  margin-top: 1em;
+}
+
+.Template-container {
+  background: #8a7231;
+  /* aspect-ratio: 1 / 1.4142; */
+  padding-bottom: 70%;
+  padding-right: 30px;
+  padding-left: 30px;
+  height: calc(100vh-20px);
+}
+
+.Template {
+  padding: 10px;  
+  box-sizing: border-box;
+  border: 1px dashed;
+  max-width: 100%;
+
+  position: sticky;
+  position: -webkit-sticky;
+  top: 20px;
+  align-self: start;
+}
+
+.component {
+  margin-top: 5px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.sm{
   font-size: 14px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.tempItem-flexContainer {
+  display: flex;
+  justify-content: space-between;
 }
