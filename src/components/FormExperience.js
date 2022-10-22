@@ -6,14 +6,14 @@ import React, { Component } from 'react';
 
 export default class FormExperience extends Component {
   // eslint-disable-next-line react/no-unused-class-component-methods
-  renderDescriptionInput(arrItem) {
+  renderDescriptionInput(arrItem, id, ind) {
     return (
       <label>
         Description
         <input
           type="text"
           value={arrItem}
-          // onChange={(e) => this.props.changeFunc(e, 'points', obj.id)}
+          onChange={(e) => this.props.changePt(e, id, ind)}
         />
       </label>
     );
@@ -23,7 +23,7 @@ export default class FormExperience extends Component {
     const points = [];
 
     for (let i = 0; i < obj.points.length; i += 1) {
-      points.push(this.renderDescriptionInput(obj.points[i]));
+      points.push(this.renderDescriptionInput(obj.points[i], obj.id, i));
     }
 
     return (
@@ -77,12 +77,19 @@ export default class FormExperience extends Component {
           />
         </label>
         {points}
-        <button
+        {/* <button
           type="button"
           className="fullLength-btn"
           onClick={() => this.props.newDescript(obj.id)}
         >
           add description
+        </button> */}
+        <button
+          type="button"
+          className="fullLength-btn remove-btn"
+          onClick={() => this.props.rmExp(obj.id)}
+        >
+          remove
         </button>
       </form>
     );

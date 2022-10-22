@@ -19,6 +19,13 @@
   grid-area: 6/1/6/3;
 }
 
+.remove-btn{
+  background-color: rgb(235, 88, 88);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
 .fullLength-btn::after{
   content: '';
   position: absolute;
@@ -26,7 +33,7 @@
   left: 10px;
   height: 1px;
   background: #000;
-  width: 65%;
+  width: 64%;
   border-bottom: solid 1px #000;
 }
 

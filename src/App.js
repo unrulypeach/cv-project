@@ -106,6 +106,14 @@ export default class App extends Component {
     this.setState({ experience });
   }
 
+  handleExpPtChange(ev, id, ind) {
+    const experience = [...this.state.experience];
+    const item = { ...experience[id] };
+    item.points[ind] = ev.target.value;
+    experience[id] = item;
+    this.setState({ experience });
+  }
+
   newSkill(ind) {
     this.setState({
       // eslint-disable-next-line react/no-access-state-in-setstate
@@ -154,6 +162,12 @@ export default class App extends Component {
     this.setState({ experience });
   }
 
+  rmExp(id) {
+    const experience = [...this.state.experience];
+    experience.splice(id, 1);
+    this.setState({ experience });
+  }
+
   toggleSkills() {
     this.setState(({ showSkills }) => ({ showSkills: !showSkills }));
   }
@@ -179,10 +193,12 @@ export default class App extends Component {
           newEdu={(ind) => this.newEdu(ind)}
           newExp={(ind) => this.newExp(ind)}
           newExpDescript={(ind) => this.newExpDescription(ind)}
+          changeExpPt={(ev, id, ind) => this.handleExpPtChange(ev, id, ind)}
           toggleSkillDisplay={() => this.toggleSkills()}
           toggleEduDisplay={() => this.toggleEducation()}
           toggleExpDisplay={() => this.toggleExperience()}
           currState={this.state}
+          rmExp={(id) => this.rmExp(id)}
         />
         <Template
           currState={this.state}

@@ -66,7 +66,12 @@ export default class FormEducation extends Component {
             onChange={(e) => this.props.changeFunction(e, 'expectedEnd', ind)}
           />
         </label>
-        {/* <hr /> */}
+        <button
+          type="button"
+          className="fullLength-btn remove-btn"
+        >
+          remove
+        </button>
       </form>
     );
   }

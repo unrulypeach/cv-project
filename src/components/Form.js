@@ -36,6 +36,8 @@ export default class Form extends Component {
           changeFunc={this.props.changeExpFunc}
           newDescript={this.props.newExpDescript}
           newExp={this.props.newExp}
+          changePt={this.props.changeExpPt}
+          rmExp={this.props.rmExp}
         />
       </div>
     );
