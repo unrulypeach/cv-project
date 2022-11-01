@@ -77,13 +77,13 @@ export default class FormExperience extends Component {
           />
         </label>
         {points}
-        {/* <button
+        <button
           type="button"
           className="fullLength-btn"
           onClick={() => this.props.newDescript(obj.id)}
         >
           add description
-        </button> */}
+        </button>
         <button
           type="button"
           className="fullLength-btn remove-btn"
