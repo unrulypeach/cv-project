@@ -1,31 +1,32 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable class-methods-use-this */
-import React, { Component } from 'react';
+import React from 'react';
+import uniqid from 'uniqid';
 
-export default class Experience extends Component {
-  renderPoint(arrItem) {
+export default function Experience(props) {
+  const { expState } = props;
+  function renderPoint(arrItem) {
     return (
-      <div>
+      <div key={uniqid()}>
         {'- '}
         {arrItem}
       </div>
     );
   }
 
-  renderExperience(obj) {
+  function renderExperience(obj) {
     const points = [];
 
     for (let i = 0; i < obj.points.length; i += 1) {
-      points.push(this.renderPoint(obj.points[i]));
+      points.push(renderPoint(obj.points[i]));
     }
     return (
-      <div className="tempExpItem component">
+      <div key={uniqid()} className="tempExpItem component">
         <div className="tempItem-flexContainer">
-          <span className="exp title">
+          <span className="font-bold">
             {obj.name}
           </span>
-          <span className="exp title">
+          <span className="font-bold">
             {obj.city}
             ,
             {' '}
@@ -33,10 +34,10 @@ export default class Experience extends Component {
           </span>
         </div>
         <div className="tempItem-flexContainer">
-          <span className="sm italic">
+          <span className="text-sm italic">
             {obj.position}
           </span>
-          <span className="sm">
+          <span className="text-sm">
             {obj.start}
             {' - '}
             {obj.end}
@@ -49,16 +50,13 @@ export default class Experience extends Component {
     );
   }
 
-  render() {
-    const { exp } = this.props;
-    const contents = [];
-    exp.forEach((ele) => contents.push(this.renderExperience(ele)));
-    return (
-      <div className="template-section">
-        <h2 className="templateTitle"> EXPERIENCE </h2>
-        <hr />
-        {contents}
-      </div>
-    );
-  }
+  const contents = [];
+  expState.forEach((ele) => contents.push(renderExperience(ele)));
+  return (
+    <div className="template-section">
+      <h2 className="templateTitle"> EXPERIENCE </h2>
+      <hr />
+      {contents}
+    </div>
+  );
 }

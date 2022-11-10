@@ -1,39 +1,42 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { Component } from 'react';
+import React from 'react';
+import uniqid from 'uniqid';
+import ShowhHideBtn from '../utils/ShowHideBtn';
 
-export default class FormExperience extends Component {
-  // eslint-disable-next-line react/no-unused-class-component-methods
-  renderDescriptionInput(arrItem, id, ind) {
+export default function FormExperience(props) {
+  const {
+    expState, changeFunction, togExp, expStatus, newExp, /* newDescript, */ changePt, rmExp,
+  } = props;
+
+  function renderDescriptionInput(arrItem, id, ind) {
     return (
-      <label>
+      <label key={uniqid()}>
         Description
         <input
           type="text"
           value={arrItem}
-          onChange={(e) => this.props.changePt(e, id, ind)}
+          onChange={(e) => changePt(e, id, ind)}
         />
       </label>
     );
   }
 
-  renderExperience(obj) {
+  function renderExperience(obj) {
     const points = [];
 
     for (let i = 0; i < obj.points.length; i += 1) {
-      points.push(this.renderDescriptionInput(obj.points[i], obj.id, i));
+      points.push(renderDescriptionInput(obj.points[i], obj.id, i));
     }
 
     return (
-      <form className="form-piece-container">
+      <form key={obj.id} className="form-piece-container">
         <label>
           Employer
           <input
             type="text"
             value={obj.name}
-            onChange={(e) => this.props.changeFunc(e, 'name', obj.id)}
+            onChange={(e) => changeFunction(e, 'name', obj.id)}
           />
         </label>
         <label>
@@ -41,7 +44,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.position}
-            onChange={(e) => this.props.changeFunc(e, 'position', obj.id)}
+            onChange={(e) => changeFunction(e, 'position', obj.id)}
           />
         </label>
         <label>
@@ -49,7 +52,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.city}
-            onChange={(e) => this.props.changeFunc(e, 'city', obj.id)}
+            onChange={(e) => changeFunction(e, 'city', obj.id)}
           />
         </label>
         <label>
@@ -57,7 +60,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.state}
-            onChange={(e) => this.props.changeFunc(e, 'state', obj.id)}
+            onChange={(e) => changeFunction(e, 'state', obj.id)}
           />
         </label>
         <label>
@@ -65,7 +68,7 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.start}
-            onChange={(e) => this.props.changeFunc(e, 'start', obj.id)}
+            onChange={(e) => changeFunction(e, 'start', obj.id)}
           />
         </label>
         <label>
@@ -73,21 +76,21 @@ export default class FormExperience extends Component {
           <input
             type="text"
             value={obj.end}
-            onChange={(e) => this.props.changeFunc(e, 'end', obj.id)}
+            onChange={(e) => changeFunction(e, 'end', obj.id)}
           />
         </label>
         {points}
-        <button
+        {/* <button
           type="button"
           className="fullLength-btn"
-          onClick={() => this.props.newDescript(obj.id)}
+          onClick={() => newDescript(obj.id)}
         >
           add description
-        </button>
+        </button> */}
         <button
           type="button"
           className="fullLength-btn remove-btn"
-          onClick={() => this.props.rmExp(obj.id)}
+          onClick={() => rmExp(obj.id)}
         >
           remove
         </button>
@@ -95,37 +98,25 @@ export default class FormExperience extends Component {
     );
   }
 
-  render() {
-    const children = [];
+  const children = [];
+  expState.forEach((ele) => children.push(renderExperience(ele)));
 
-    // for (let i = 0; i < this.props.currState.length; i += 1) {
-    //   children.push(this.renderExperience(this.props.currState[i]));
-    // }
-    const { currState } = this.props;
-    currState.forEach((ele) => children.push(this.renderExperience(ele)));
-
-    return (
-      <div id="formExperience" className="form-section">
-        <div className="header-container">
-          <h2>Experience</h2>
-          <button
-            type="button"
-            onClick={() => this.props.togExp()}
-          >
-            {this.props.expStatus ? 'hide' : 'show'}
-          </button>
-        </div>
-        <hr />
-        <div className="section-content" style={{ display: this.props.expStatus ? 'block' : 'none' }}>
-          {children}
-          <button
-            type="button"
-            onClick={() => this.props.newExp(this.props.currState.length)}
-          >
-            +
-          </button>
-        </div>
+  return (
+    <div id="formExperience" className="form-section">
+      <div className="header-container">
+        <h2>Experience</h2>
+        {ShowhHideBtn(expStatus, togExp)}
       </div>
-    );
-  }
+      <hr />
+      <div className="section-content" style={{ display: expStatus ? 'block' : 'none' }}>
+        {children}
+        <button
+          type="button"
+          onClick={() => newExp(expState.length)}
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
 }

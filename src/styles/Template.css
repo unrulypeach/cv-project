@@ -1,21 +1,11 @@
-.tempHeader {
-  text-align: center;
-  padding-top: 25px;
-  padding-bottom: 15px;
-}
-
-.Template h2 {
-  font-size: 16px;
-  margin-top: 1em;
-}
+/*.Template-container {
+  aspect-ratio: 1 / 1.4142;
+  height: calc(100vh-20px);
+} */
 
 .Template-container {
-  background: #8a7231;
-  /* aspect-ratio: 1 / 1.4142; */
-  padding-bottom: 70%;
-  padding-right: 30px;
-  padding-left: 30px;
-  height: calc(100vh-20px);
+  height: calc(100vh - 50px);
+  width: calc((100vh - 50px) * 0.7071);
 }
 
 .Template {
@@ -32,22 +22,4 @@
 
 .component {
   margin-top: 5px;
-}
-
-.title {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.sm{
-  font-size: 14px;
-}
-
-.italic {
-  font-style: italic;
-}
-
-.tempItem-flexContainer {
-  display: flex;
-  justify-content: space-between;
 }

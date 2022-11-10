@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from 'react';
+import React from 'react';
+import uniqid from 'uniqid';
 
-export default class Education extends Component {
-  // eslint-disable-next-line class-methods-use-this
-  renderEducation(obj) {
+export default function Education(props) {
+  const { educationState } = props;
+  function renderEducation(obj) {
     return (
-      <div className="tempEduItem component">
+      <div key={uniqid()} className="tempEduItem component">
         <div className="tempItem-flexContainer">
-          <span className="edu title">
+          <span className="font-bold">
             {obj.name}
           </span>
-          <span className="edu title">
+          <span className="font-bold">
             {obj.city}
             ,
             {' '}
@@ -18,34 +19,29 @@ export default class Education extends Component {
           </span>
         </div>
         <div className="tempItem-flexContainer">
-          <span className="sm italic">
+          <span className="text-sm italic">
             {obj.degree}
           </span>
-          <span className="sm">
+          <span className="text-sm">
             {obj.start}
             {' '}
             -
             {' '}
             {obj.end}
           </span>
-          {/* <span>
-            {obj.expectedEnd}
-          </span> */}
+          {(obj.expectedEnd === '' ? null : <span>{obj.expectedEnd}</span>)}
         </div>
       </div>
     );
   }
 
-  render() {
-    const { education } = this.props;
-    const contents = [];
-    education.forEach((ele) => contents.push(this.renderEducation(ele)));
-    return (
-      <div id="tempEdu">
-        <h2 className="templateTitle"> EDUCATION </h2>
-        <hr />
-        {contents}
-      </div>
-    );
-  }
+  const contents = [];
+  educationState.forEach((ele) => contents.push(renderEducation(ele)));
+  return (
+    <div id="tempEdu">
+      <h2 className="templateTitle"> EDUCATION </h2>
+      <hr />
+      {contents}
+    </div>
+  );
 }

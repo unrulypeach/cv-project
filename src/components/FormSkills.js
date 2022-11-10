@@ -1,64 +1,67 @@
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { Component } from 'react';
+import React from 'react';
+import ShowHideBtn from '../utils/ShowHideBtn';
 
-export default class FormSkills extends Component {
-  renderSkills(ind) {
-    const { currState } = this.props;
+export default function FormSkills(props) {
+  const {
+    skillState, changeFunction, togSkill, skillStatus, newSkill, rmSkill,
+  } = props;
+  function renderSkills(ind) {
     return (
       <form key={ind} className="form-piece-container">
         <label>
           Title
           <input
             type="text"
-            value={currState[ind].title}
-              // onCHange = find index and change title
-            onChange={(e) => this.props.changeFunc(e, 'title', ind)}
+            value={skillState[ind].title}
+            onChange={(e) => changeFunction(e, 'title', ind)}
           />
         </label>
         <label>
           Description
           <input
             type="text"
-            value={currState[ind].descript}
-            onChange={(e) => this.props.changeFunc(e, 'descript', ind)}
+            value={skillState[ind].descript}
+            onChange={(e) => changeFunction(e, 'descript', ind)}
           />
         </label>
-        {/* <hr /> */}
+        <button
+          type="button"
+          className="fullLength-btn remove-btn"
+          onClick={() => rmSkill(ind)}
+        >
+          remove
+        </button>
       </form>
     );
   }
 
-  render() {
-    const children = [];
+  const children = [];
 
-    for (let i = 0; i < this.props.currState.length; i += 1) {
-      children.push(this.renderSkills(i));
+  function getChildren() {
+    for (let i = 0; i < skillState.length; i += 1) {
+      children.push(renderSkills(i));
     }
-
-    return (
-      <div id="formSkills" className="form-section">
-        <div className="header-container">
-          <h2>Skills</h2>
-          <button
-            type="button"
-            onClick={() => this.props.togSkill()}
-          >
-            {this.props.skillStatus ? 'hide' : 'show'}
-          </button>
-        </div>
-        <hr />
-        <div className="section-content" style={{ display: this.props.skillStatus ? 'block' : 'none' }}>
-          {children}
-          <button
-            type="button"
-            onClick={() => this.props.newSkill(this.props.currState.length)}
-          >
-            +
-          </button>
-        </div>
-      </div>
-    );
+    return children;
   }
+
+  return (
+    <div className="form-section">
+      <div className="header-container">
+        <h2>Skills</h2>
+        {ShowHideBtn(skillStatus, togSkill)}
+      </div>
+      <hr />
+      <div className="section-content" style={{ display: skillStatus ? 'block' : 'none' }}>
+        {getChildren()}
+        <button
+          type="button"
+          onClick={() => newSkill(skillState.length)}
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
 }

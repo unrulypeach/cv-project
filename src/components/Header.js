@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Header extends Component {
-  render() {
-    const {
+export default function Header(props) {
+  const {
+    headerState: {
       first, last, email, github,
-    } = this.props;
-    return (
-      <div className="tempHeader">
-        <h1>
-          {first}
-          {' '}
-          {last}
-        </h1>
-        <span className="sm">
-          {email}
-          {' '}
-          {github}
-        </span>
-      </div>
-    );
-  }
+    },
+  } = props;
+  return (
+    <div className="tempHeader text-center py-6">
+      <h1 className="font-bold text-2xl">
+        {first}
+        {' '}
+        {last}
+      </h1>
+      <span className="text-base">
+        {email}
+        {' '}
+        {github}
+      </span>
+    </div>
+  );
 }

@@ -1,36 +1,38 @@
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { Component } from 'react';
-import '../styles/Form.css';
+import React from 'react';
+import ShowhHideBtn from '../utils/ShowHideBtn';
 
-export default class FormHeader extends Component {
-  renderHeaderPc(name) {
-    const { header } = this.props;
+export default function FormHeader(props) {
+  const {
+    headerState, setHeaderState, togHead, headStatus,
+  } = props;
+  function renderHeaderPc(name) {
     return (
-      <label className="form-piece">
+      <label>
         {name}
         <input
           type="text"
-          value={header[name.toLowerCase()]}
-          onChange={(e) => this.props.changeFunction(e, name.toLowerCase())}
+          placeholder={name}
+          value={headerState[name.toLowerCase()]}
+          onChange={(e) => setHeaderState(e, name.toLowerCase())}
         />
       </label>
     );
   }
-
-  render() {
-    return (
-      <div id="formHeader">
-        <h2> Identification </h2>
-        <hr />
-        <form className="form-piece-container">
-          {this.renderHeaderPc('First')}
-          {this.renderHeaderPc('Last')}
-          {this.renderHeaderPc('Email')}
-          {this.renderHeaderPc('Github')}
-        </form>
+  return (
+    <div className="form-section">
+      <div className="header-container">
+        <h2 className="text-lg"> Identification </h2>
+        {ShowhHideBtn(headStatus, togHead)}
       </div>
-    );
-  }
+      <hr />
+      <form className="form-piece-container" style={{ display: headStatus ? 'block' : 'none' }}>
+        {renderHeaderPc('First')}
+        {renderHeaderPc('Last')}
+        {renderHeaderPc('Email')}
+        {renderHeaderPc('Github')}
+      </form>
+    </div>
+  );
 }

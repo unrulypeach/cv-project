@@ -5,17 +5,3 @@
   padding: 0;
   font-family: 'Times New Roman', Times, serif;
 }
-
-.App {
-  background-color: rgb(202, 175, 117);
-
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 25px;
-  grid-template-rows: 50px;
-}
-
-.header{
-  text-align: center;
-  grid-area: 1/ 1/ 1/ 4;
-}

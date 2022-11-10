@@ -1,21 +1,22 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
-import React, { Component } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
+import ShowhHideBtn from '../utils/ShowHideBtn';
 
-export default class FormEducation extends Component {
-  renderEducation(ind) {
-    const { education } = this.props;
+export default function FormEducation(props) {
+  const {
+    education, changeFunction, togEdu, eduStatus, newEdu, rmEdu,
+  } = props;
 
+  function renderEducation(ind) {
     return (
-      <form key={ind} className="form-piece-container">
+      <form key={ind} className="form-piece-container grid grid-cols-2">
         <label>
           School
           <input
             type="text"
             value={education[ind].name}
-            onChange={(e) => this.props.changeFunction(e, 'name', ind)}
+            onChange={(e) => changeFunction(e, 'name', ind)}
           />
         </label>
         <label>
@@ -23,7 +24,7 @@ export default class FormEducation extends Component {
           <input
             type="text"
             value={education[ind].degree}
-            onChange={(e) => this.props.changeFunction(e, 'degree', ind)}
+            onChange={(e) => changeFunction(e, 'degree', ind)}
           />
         </label>
         <label>
@@ -31,7 +32,7 @@ export default class FormEducation extends Component {
           <input
             type="text"
             value={education[ind].city}
-            onChange={(e) => this.props.changeFunction(e, 'city', ind)}
+            onChange={(e) => changeFunction(e, 'city', ind)}
           />
         </label>
         <label>
@@ -39,7 +40,7 @@ export default class FormEducation extends Component {
           <input
             type="text"
             value={education[ind].state}
-            onChange={(e) => this.props.changeFunction(e, 'state', ind)}
+            onChange={(e) => changeFunction(e, 'state', ind)}
           />
         </label>
         <label>
@@ -47,7 +48,7 @@ export default class FormEducation extends Component {
           <input
             type="text"
             value={education[ind].start}
-            onChange={(e) => this.props.changeFunction(e, 'start', ind)}
+            onChange={(e) => changeFunction(e, 'start', ind)}
           />
         </label>
         <label>
@@ -55,7 +56,7 @@ export default class FormEducation extends Component {
           <input
             type="text"
             value={education[ind].end}
-            onChange={(e) => this.props.changeFunction(e, 'end', ind)}
+            onChange={(e) => changeFunction(e, 'end', ind)}
           />
         </label>
         <label>
@@ -63,12 +64,13 @@ export default class FormEducation extends Component {
           <input
             type="text"
             value={education[ind].expectedEnd}
-            onChange={(e) => this.props.changeFunction(e, 'expectedEnd', ind)}
+            onChange={(e) => changeFunction(e, 'expectedEnd', ind)}
           />
         </label>
         <button
           type="button"
           className="fullLength-btn remove-btn"
+          onClick={() => rmEdu(ind)}
         >
           remove
         </button>
@@ -76,35 +78,28 @@ export default class FormEducation extends Component {
     );
   }
 
-  render() {
-    const children = [];
+  const children = [];
 
-    for (let i = 0; i < this.props.education.length; i += 1) {
-      children.push(this.renderEducation(i));
-    }
-
-    return (
-      <div id="formEducation" className="form-section">
-        <div className="header-container">
-          <h2>Education</h2>
-          <button
-            type="button"
-            onClick={() => this.props.togEdu()}
-          >
-            {this.props.eduStatus ? 'hide' : 'show'}
-          </button>
-        </div>
-        <hr />
-        <div className="section-content" style={{ display: this.props.eduStatus ? 'block' : 'none' }}>
-          {children}
-          <button
-            type="button"
-            onClick={() => { this.props.newEdu(this.props.education.length); }}
-          >
-            +
-          </button>
-        </div>
-      </div>
-    );
+  for (let i = 0; i < education.length; i += 1) {
+    children.push(renderEducation(i));
   }
+
+  return (
+    <div id="formEducation" className="form-section">
+      <div className="header-container">
+        <h2>Education</h2>
+        {ShowhHideBtn(eduStatus, togEdu)}
+      </div>
+      <hr />
+      <div className="section-content" style={{ display: eduStatus ? 'block' : 'none' }}>
+        {children}
+        <button
+          type="button"
+          onClick={() => newEdu(education.length)}
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
 }
