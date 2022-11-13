@@ -27,12 +27,14 @@ export default function FormHeader(props) {
         {ShowhHideBtn(headStatus, togHead)}
       </div>
       <hr />
-      <form className="form-piece-container" style={{ display: headStatus ? 'block' : 'none' }}>
-        {renderHeaderPc('First')}
-        {renderHeaderPc('Last')}
-        {renderHeaderPc('Email')}
-        {renderHeaderPc('Github')}
-      </form>
+      <div className="section-content">
+        <form className="form-piece-container" style={{ display: headStatus ? 'block' : 'none' }}>
+          {renderHeaderPc('First')}
+          {renderHeaderPc('Last')}
+          {renderHeaderPc('Email')}
+          {renderHeaderPc('Github')}
+        </form>
+      </div>
     </div>
   );
 }

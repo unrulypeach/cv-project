@@ -4,18 +4,22 @@
 
 @layer components {
   .header-container {
-    @apply flex justify-between
+    @apply flex justify-between p-2
   }
   .form-section {
     @apply text-snow bg-green rounded mb-2
   }
 
   .form-piece-container {
-    @apply grid grid-cols-2
+    @apply grid grid-cols-2 p-2
   }
 
   .remove-btn {
-    @apply bg-red rounded
+    @apply bg-red rounded-lg w-full
+  }
+
+  .rmBtnWrap{
+    @apply text-center mb-1 pt-7
   }
 
   .fullLength-btn {
@@ -49,5 +53,13 @@
 
   .tempItem-flexContainer {
     @apply flex justify-between
+  }
+
+  .newBtnWrap{
+    @apply text-center mb-1 p-2
+  }
+
+  .newBtn{
+    @apply w-full bg-silver rounded-lg
   }
 }

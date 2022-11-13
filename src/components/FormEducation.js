@@ -67,13 +67,15 @@ export default function FormEducation(props) {
             onChange={(e) => changeFunction(e, 'expectedEnd', ind)}
           />
         </label>
-        <button
-          type="button"
-          className="fullLength-btn remove-btn"
-          onClick={() => rmEdu(ind)}
-        >
-          remove
-        </button>
+        <div className="rmBtnWrap">
+          <button
+            type="button"
+            className="remove-btn"
+            onClick={() => rmEdu(ind)}
+          >
+            remove
+          </button>
+        </div>
       </form>
     );
   }
@@ -93,12 +95,15 @@ export default function FormEducation(props) {
       <hr />
       <div className="section-content" style={{ display: eduStatus ? 'block' : 'none' }}>
         {children}
-        <button
-          type="button"
-          onClick={() => newEdu(education.length)}
-        >
-          +
-        </button>
+        <div className="newBtnWrap">
+          <button
+            type="button"
+            className="newBtn"
+            onClick={() => newEdu(education.length)}
+          >
+            Add new education
+          </button>
+        </div>
       </div>
     </div>
   );

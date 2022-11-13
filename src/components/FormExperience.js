@@ -110,12 +110,15 @@ export default function FormExperience(props) {
       <hr />
       <div className="section-content" style={{ display: expStatus ? 'block' : 'none' }}>
         {children}
-        <button
-          type="button"
-          onClick={() => newExp(expState.length)}
-        >
-          +
-        </button>
+        <div className="newBtnWrap">
+          <button
+            type="button"
+            className="newBtn"
+            onClick={() => newExp(expState.length)}
+          >
+            Add new experience
+          </button>
+        </div>
       </div>
     </div>
   );

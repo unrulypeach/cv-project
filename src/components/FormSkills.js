@@ -55,12 +55,15 @@ export default function FormSkills(props) {
       <hr />
       <div className="section-content" style={{ display: skillStatus ? 'block' : 'none' }}>
         {getChildren()}
-        <button
-          type="button"
-          onClick={() => newSkill(skillState.length)}
-        >
-          +
-        </button>
+        <div className="newBtnWrap">
+          <button
+            type="button"
+            className="newBtn"
+            onClick={() => newSkill(skillState.length)}
+          >
+            Add new skill
+          </button>
+        </div>
       </div>
     </div>
   );

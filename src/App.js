@@ -202,7 +202,7 @@ function App() {
   return (
     <div className="App flex h-screen truncate">
       <h1 className="height-12 text-silver text-3xl text-center col-span-full"> Resume Creator</h1>
-      <div className="px-7 flex justify-center">
+      <div className="px-7 flex justify-center pt-2">
         <div className="Template-container bg-snow">
           <Header
             headerState={header}
@@ -218,8 +218,8 @@ function App() {
           />
         </div>
       </div>
-      <div className="Form-container h-screen pt-10">
-        <div className="bg-sgrey overflow-auto h-5/6">
+      <div className="Form-container w-2/5 h-screen border-8 border-solid border-white">
+        <div className="bg-sgrey overflow-auto h-screen">
           <FormHeader
             headerState={header}
             setHeaderState={setHeaderData}
