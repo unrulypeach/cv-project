@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { GoTrashcan } from 'react-icons/go';
 import ShowHideBtn from '../utils/ShowHideBtn';
 
 export default function FormSkills(props) {
@@ -9,8 +10,8 @@ export default function FormSkills(props) {
   } = props;
   function renderSkills(ind) {
     return (
-      <form key={ind} className="form-piece-container">
-        <label>
+      <form key={ind} className="flex pointer-events-none  hover:bg-lred">
+        <label className="basis-45">
           Title
           <input
             type="text"
@@ -18,7 +19,7 @@ export default function FormSkills(props) {
             onChange={(e) => changeFunction(e, 'title', ind)}
           />
         </label>
-        <label>
+        <label className="basis-45">
           Description
           <input
             type="text"
@@ -28,10 +29,13 @@ export default function FormSkills(props) {
         </label>
         <button
           type="button"
-          className="fullLength-btn remove-btn"
+          className="remove-btn h-7 basis-10 self-end mb-2 pointer-events-auto flex justify-center items-center"
           onClick={() => rmSkill(ind)}
         >
-          remove
+          <GoTrashcan
+            size="24"
+            className="text-center"
+          />
         </button>
       </form>
     );
@@ -49,7 +53,7 @@ export default function FormSkills(props) {
   return (
     <div className="form-section">
       <div className="header-container">
-        <h2>Skills</h2>
+        <h2 className="text-xl font-bold">Skills</h2>
         {ShowHideBtn(skillStatus, togSkill)}
       </div>
       <hr />

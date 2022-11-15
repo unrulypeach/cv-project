@@ -4,14 +4,14 @@
 
 @layer components {
   .header-container {
-    @apply flex justify-between p-2
+    @apply flex justify-between p-2 bg-snow rounded-md
   }
   .form-section {
-    @apply text-snow bg-green rounded mb-2
+    @apply text-black bg-grey rounded-md mb-4
   }
 
   .form-piece-container {
-    @apply grid grid-cols-2 p-2
+    @apply grid grid-cols-2 pt-2 px-2
   }
 
   .remove-btn {
@@ -31,8 +31,7 @@
   }
 
   input {
-    @apply text-black rounded-sm
-
+    @apply text-black rounded-sm border border-sgrey px-1
   }
 
   hr{
@@ -60,6 +59,6 @@
   }
 
   .newBtn{
-    @apply w-full bg-silver rounded-lg
+    @apply w-full bg-lblue rounded-lg h-9 font-medium hover:bg-hovBlue
   }
 }

@@ -183,6 +183,14 @@ function App() {
     setExperience(experienceSet);
   }
 
+  function rmLastExpDescription(id) {
+    const experienceSet = [...experience];
+    const item = experienceSet[id];
+    item.points.pop();
+    experienceSet[id] = item;
+    setExperience(experienceSet);
+  }
+
   function expDescriptionChange(ev, id, ind) {
     const experienceSet = [...experience];
     const item = { ...experienceSet[id] };
@@ -200,8 +208,7 @@ function App() {
 
   // grid grid-cols-2 gap-x-2
   return (
-    <div className="App flex h-screen truncate">
-      <h1 className="height-12 text-silver text-3xl text-center col-span-full"> Resume Creator</h1>
+    <div className="App flex justify-center h-screen truncate">
       <div className="px-7 flex justify-center pt-2">
         <div className="Template-container bg-snow">
           <Header
@@ -218,8 +225,8 @@ function App() {
           />
         </div>
       </div>
-      <div className="Form-container w-2/5 h-screen border-8 border-solid border-white">
-        <div className="bg-sgrey overflow-auto h-screen">
+      <div className="Form-container w-2/5 h-96 mt-2">
+        <div className="bg-white overflow-auto h-96">
           <FormHeader
             headerState={header}
             setHeaderState={setHeaderData}
@@ -249,6 +256,7 @@ function App() {
             expStatus={showExperience}
             newExp={newExp}
             newDescript={newExpDescription}
+            rmDescript={rmLastExpDescription}
             changePt={expDescriptionChange}
             rmExp={rmExp}
           />

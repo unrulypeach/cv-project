@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { GoTrashcan } from 'react-icons/go';
 import ShowhHideBtn from '../utils/ShowHideBtn';
 
 export default function FormEducation(props) {
@@ -10,7 +11,7 @@ export default function FormEducation(props) {
 
   function renderEducation(ind) {
     return (
-      <form key={ind} className="form-piece-container grid grid-cols-2">
+      <form key={ind} className="form-piece-container pointer-events-none grid grid-cols-2  hover:bg-lred">
         <label>
           School
           <input
@@ -67,13 +68,15 @@ export default function FormEducation(props) {
             onChange={(e) => changeFunction(e, 'expectedEnd', ind)}
           />
         </label>
-        <div className="rmBtnWrap">
+        <div className="rmBtnWrap pointer-events-none">
           <button
             type="button"
-            className="remove-btn"
+            className="remove-btn pointer-events-auto flex justify-center items-center"
             onClick={() => rmEdu(ind)}
           >
-            remove
+            <GoTrashcan
+              size="24"
+            />
           </button>
         </div>
       </form>
@@ -89,21 +92,21 @@ export default function FormEducation(props) {
   return (
     <div id="formEducation" className="form-section">
       <div className="header-container">
-        <h2>Education</h2>
+        <h2 className="text-xl font-bold">Education</h2>
         {ShowhHideBtn(eduStatus, togEdu)}
       </div>
       <hr />
       <div className="section-content" style={{ display: eduStatus ? 'block' : 'none' }}>
         {children}
-        <div className="newBtnWrap">
-          <button
-            type="button"
-            className="newBtn"
-            onClick={() => newEdu(education.length)}
-          >
-            Add new education
-          </button>
-        </div>
+      </div>
+      <div className="newBtnWrap">
+        <button
+          type="button"
+          className="newBtn"
+          onClick={() => newEdu(education.length)}
+        >
+          Add new education
+        </button>
       </div>
     </div>
   );

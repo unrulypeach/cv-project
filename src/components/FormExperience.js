@@ -1,17 +1,19 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import uniqid from 'uniqid';
 import ShowhHideBtn from '../utils/ShowHideBtn';
+import {
+  hoverEnter, hoverLeave, hoverEnterRm, hoverLeaveRm,
+} from '../utils/SpecialHover';
 
 export default function FormExperience(props) {
   const {
-    expState, changeFunction, togExp, expStatus, newExp, /* newDescript, */ changePt, rmExp,
+    expState, changeFunction, togExp, expStatus, newExp, newDescript, rmDescript, changePt, rmExp,
   } = props;
 
   function renderDescriptionInput(arrItem, id, ind) {
     return (
-      <label key={uniqid()}>
+      <label key={ind}>
         Description
         <input
           type="text"
@@ -30,7 +32,7 @@ export default function FormExperience(props) {
     }
 
     return (
-      <form key={obj.id} className="form-piece-container">
+      <form key={obj.id} className="form-piece-container" id={`form${obj.id}`}>
         <label>
           Employer
           <input
@@ -80,20 +82,33 @@ export default function FormExperience(props) {
           />
         </label>
         {points}
-        {/* <button
-          type="button"
-          className="fullLength-btn"
-          onClick={() => newDescript(obj.id)}
-        >
-          add description
-        </button> */}
-        <button
-          type="button"
-          className="fullLength-btn remove-btn"
-          onClick={() => rmExp(obj.id)}
-        >
-          remove
-        </button>
+        <div className="col-span-full flex justify-around py-3">
+          <button
+            type="button"
+            className="bg-silver rounded px-5 py-1"
+            onClick={() => newDescript(obj.id)}
+          >
+            add description
+          </button>
+          <button
+            type="button"
+            className="bg-sgrey rounded px-5 py-1 pointer-events-auto"
+            onClick={() => rmDescript(obj.id)}
+            onMouseEnter={() => hoverEnter(`form${obj.id}`)}
+            onMouseLeave={() => hoverLeave(`form${obj.id}`)}
+          >
+            remove last description
+          </button>
+          <button
+            type="button"
+            className="bg-red rounded px-5 py-1 pointer-events-auto"
+            onClick={() => rmExp(obj.id)}
+            onMouseEnter={() => hoverEnterRm(`form${obj.id}`)}
+            onMouseLeave={() => hoverLeaveRm(`form${obj.id}`)}
+          >
+            remove experience
+          </button>
+        </div>
       </form>
     );
   }
@@ -104,7 +119,7 @@ export default function FormExperience(props) {
   return (
     <div id="formExperience" className="form-section">
       <div className="header-container">
-        <h2>Experience</h2>
+        <h2 className="text-xl font-bold">Experience</h2>
         {ShowhHideBtn(expStatus, togExp)}
       </div>
       <hr />

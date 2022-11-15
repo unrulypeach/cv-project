@@ -23,12 +23,12 @@ export default function FormHeader(props) {
   return (
     <div className="form-section">
       <div className="header-container">
-        <h2 className="text-lg"> Identification </h2>
+        <h2 className="text-xl font-bold"> Identification </h2>
         {ShowhHideBtn(headStatus, togHead)}
       </div>
       <hr />
-      <div className="section-content">
-        <form className="form-piece-container" style={{ display: headStatus ? 'block' : 'none' }}>
+      <div className="section-content" style={{ display: headStatus ? 'block' : 'none' }}>
+        <form className="form-piece-container">
           {renderHeaderPc('First')}
           {renderHeaderPc('Last')}
           {renderHeaderPc('Email')}
