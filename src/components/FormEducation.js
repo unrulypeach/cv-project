@@ -3,6 +3,7 @@
 import React from 'react';
 import { GoTrashcan } from 'react-icons/go';
 import ShowhHideBtn from '../utils/ShowHideBtn';
+import { hoverEnterRm, hoverLeaveRm } from '../utils/SpecialHover';
 
 export default function FormEducation(props) {
   const {
@@ -11,7 +12,7 @@ export default function FormEducation(props) {
 
   function renderEducation(ind) {
     return (
-      <form key={ind} className="form-piece-container pointer-events-none grid grid-cols-2  hover:bg-lred">
+      <form key={ind} id={`edu${ind}`} className="form-piece-container grid grid-cols-2">
         <label>
           School
           <input
@@ -68,11 +69,13 @@ export default function FormEducation(props) {
             onChange={(e) => changeFunction(e, 'expectedEnd', ind)}
           />
         </label>
-        <div className="rmBtnWrap pointer-events-none">
+        <div className="rmBtnWrap">
           <button
             type="button"
-            className="remove-btn pointer-events-auto flex justify-center items-center"
+            className="remove-btn ml-1 flex justify-center items-center"
             onClick={() => rmEdu(ind)}
+            onMouseEnter={() => hoverEnterRm(`edu${ind}`)}
+            onMouseLeave={() => hoverLeaveRm(`edu${ind}`)}
           >
             <GoTrashcan
               size="24"
@@ -98,15 +101,15 @@ export default function FormEducation(props) {
       <hr />
       <div className="section-content" style={{ display: eduStatus ? 'block' : 'none' }}>
         {children}
-      </div>
-      <div className="newBtnWrap">
-        <button
-          type="button"
-          className="newBtn"
-          onClick={() => newEdu(education.length)}
-        >
-          Add new education
-        </button>
+        <div className="newBtnWrap">
+          <button
+            type="button"
+            className="newBtn"
+            onClick={() => newEdu(education.length)}
+          >
+            Add new education
+          </button>
+        </div>
       </div>
     </div>
   );

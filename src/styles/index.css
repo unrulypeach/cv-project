@@ -4,7 +4,7 @@
 
 @layer components {
   .header-container {
-    @apply flex justify-between p-2 bg-snow rounded-md
+    @apply flex justify-between py-2 px-4 bg-snow rounded-md
   }
   .form-section {
     @apply text-black bg-grey rounded-md mb-4
@@ -15,7 +15,7 @@
   }
 
   .remove-btn {
-    @apply bg-red rounded-lg w-full
+    @apply bg-red rounded-lg w-99
   }
 
   .rmBtnWrap{
@@ -38,6 +38,10 @@
     @apply w-99 m-auto
   }
   
+  .Template-container {
+    @apply px-3
+  }
+
   .templateTitle {
     @apply px-2
   }
@@ -59,6 +63,6 @@
   }
 
   .newBtn{
-    @apply w-full bg-lblue rounded-lg h-9 font-medium hover:bg-hovBlue
+    @apply w-99 bg-lblue rounded-lg h-9 font-medium hover:bg-hovBlue
   }
 }

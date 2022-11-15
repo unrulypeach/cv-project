@@ -3,6 +3,7 @@
 import React from 'react';
 import { GoTrashcan } from 'react-icons/go';
 import ShowHideBtn from '../utils/ShowHideBtn';
+import { hoverEnterRm, hoverLeaveRm } from '../utils/SpecialHover';
 
 export default function FormSkills(props) {
   const {
@@ -10,7 +11,7 @@ export default function FormSkills(props) {
   } = props;
   function renderSkills(ind) {
     return (
-      <form key={ind} className="flex pointer-events-none  hover:bg-lred">
+      <form key={ind} id={`skill${ind}`} className="flex pr-3">
         <label className="basis-45">
           Title
           <input
@@ -29,12 +30,13 @@ export default function FormSkills(props) {
         </label>
         <button
           type="button"
-          className="remove-btn h-7 basis-10 self-end mb-2 pointer-events-auto flex justify-center items-center"
+          className="bg-red rounded-lg h-7 basis-10 self-end mb-2 flex justify-center items-center"
           onClick={() => rmSkill(ind)}
+          onMouseEnter={() => hoverEnterRm(`skill${ind}`)}
+          onMouseLeave={() => hoverLeaveRm(`skill${ind}`)}
         >
           <GoTrashcan
             size="24"
-            className="text-center"
           />
         </button>
       </form>
