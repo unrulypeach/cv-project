@@ -6,14 +6,14 @@ export default function Skills(props) {
 
   function renderSkill(skillObj) {
     return (
-      <div key={skillObj.id} className="tempSkillsItem component">
-        <span className="font-bold">
+      <div key={skillObj.id} className="tempSkillsItem px-2">
+        <span className="font-bold text-sm">
           {skillObj.title}
         </span>
-        <span>
-          {' - '}
-        </span>
-        <span>
+        {skillObj.title ? (<span>{' - '}</span>) : ''}
+        <span
+          className="whitespace-normal text-sm"
+        >
           {skillObj.descript}
         </span>
       </div>
@@ -29,7 +29,7 @@ export default function Skills(props) {
   return (
     <div className="template-section">
       <h2 className="templateTitle"> SKILLS </h2>
-      <hr />
+      <hr className="pb-2" />
       {contents}
     </div>
   );

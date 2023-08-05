@@ -16,7 +16,7 @@ export default function Header(props) {
       </h1>
       <span className="text-base">
         {email}
-        {' '}
+        {' · '}
         {github}
       </span>
     </div>

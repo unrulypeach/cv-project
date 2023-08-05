@@ -13,7 +13,11 @@ export default function FormSkills(props) {
     return (
       <form key={ind} id={`skill${ind}`} className="flex pr-3">
         <label className="basis-45">
-          Title
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            Title
+          </span>
           <input
             type="text"
             value={skillState[ind].title}
@@ -21,7 +25,11 @@ export default function FormSkills(props) {
           />
         </label>
         <label className="basis-45">
-          Description
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            Description
+          </span>
           <input
             type="text"
             value={skillState[ind].descript}

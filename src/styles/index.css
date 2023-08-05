@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'Roboto-Regular';
+    src: url('/public/fonts/Roboto-Regular.ttf')
+  }
+
+  @font-face {
+    font-family: 'Roboto-Light';
+    src: url('/public/fonts/Roboto-Light.ttf')
+  }
+
+  @font-face {
+    font-family: 'Roboto-Medium';
+    src: url('/public/fonts/Roboto-Medium.ttf')
+  }
+
+  @font-face {
+    font-family: 'Roboto-Bold';
+    src: url('/public/fonts/Roboto-Bold.ttf')
+  }
+
+  @font-face {
+    font-family: 'Roboto-Thin';
+    src: url('/public/fonts/Roboto-Thin.ttf')
+  }
+}
+
 @layer components {
   .header-container {
     @apply flex justify-between py-2 px-4 bg-snow rounded-md
@@ -47,7 +74,7 @@
   }
   
   .component {
-    @apply mt-1 px-2
+    @apply px-2
   }
 
   .template-section {

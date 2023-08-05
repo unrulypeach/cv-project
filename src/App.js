@@ -241,14 +241,6 @@ function App() {
             newEdu={newEdu}
             rmEdu={rmEdu}
           />
-          <FormSkills
-            skillState={skills}
-            changeFunction={setSkillsData}
-            togSkill={toggleSkills}
-            skillStatus={showSkills}
-            newSkill={newSkill}
-            rmSkill={rmSkill}
-          />
           <FormExperience
             expState={experience}
             changeFunction={setExperienceData}
@@ -259,6 +251,14 @@ function App() {
             rmDescript={rmLastExpDescription}
             changePt={expDescriptionChange}
             rmExp={rmExp}
+          />
+          <FormSkills
+            skillState={skills}
+            changeFunction={setSkillsData}
+            togSkill={toggleSkills}
+            skillStatus={showSkills}
+            newSkill={newSkill}
+            rmSkill={rmSkill}
           />
         </div>
       </div>

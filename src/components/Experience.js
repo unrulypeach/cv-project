@@ -7,7 +7,10 @@ export default function Experience(props) {
   const { expState } = props;
   function renderPoint(arrItem) {
     return (
-      <div key={uniqid()}>
+      <div
+        className="pb-1 whitespace-normal text-sm"
+        key={uniqid()}
+      >
         {'- '}
         {arrItem}
       </div>
@@ -34,7 +37,7 @@ export default function Experience(props) {
           </span>
         </div>
         <div className="tempItem-flexContainer">
-          <span className="text-sm italic">
+          <span className="text-sm italic pb-2">
             {obj.position}
           </span>
           <span className="text-sm">
@@ -43,7 +46,9 @@ export default function Experience(props) {
             {obj.end}
           </span>
         </div>
-        <div>
+        <div
+          className="flex flex-col"
+        >
           {points}
         </div>
       </div>

@@ -12,9 +12,13 @@ export default function FormEducation(props) {
 
   function renderEducation(ind) {
     return (
-      <form key={ind} id={`edu${ind}`} className="form-piece-container grid grid-cols-2">
+      <form
+        key={ind}
+        id={`edu${ind}`}
+        className="form-piece-container grid grid-cols-2"
+      >
         <label>
-          School
+          <span className="font-['Roboto-Medium']">School</span>
           <input
             type="text"
             value={education[ind].name}
@@ -22,7 +26,7 @@ export default function FormEducation(props) {
           />
         </label>
         <label>
-          Degree
+          <span className="font-['Roboto-Medium']">Degree</span>
           <input
             type="text"
             value={education[ind].degree}
@@ -30,7 +34,7 @@ export default function FormEducation(props) {
           />
         </label>
         <label>
-          City
+          <span className="font-['Roboto-Medium']">City</span>
           <input
             type="text"
             value={education[ind].city}
@@ -38,7 +42,7 @@ export default function FormEducation(props) {
           />
         </label>
         <label>
-          State
+          <span className="font-['Roboto-Medium']">State</span>
           <input
             type="text"
             value={education[ind].state}
@@ -46,7 +50,7 @@ export default function FormEducation(props) {
           />
         </label>
         <label>
-          Start Date
+          <span className="font-['Roboto-Medium']">Start Date</span>
           <input
             type="text"
             value={education[ind].start}
@@ -54,7 +58,7 @@ export default function FormEducation(props) {
           />
         </label>
         <label>
-          End Date
+          <span className="font-['Roboto-Medium']">End Date</span>
           <input
             type="text"
             value={education[ind].end}
@@ -62,7 +66,7 @@ export default function FormEducation(props) {
           />
         </label>
         <label>
-          Expected End Date
+          <span className="font-['Roboto-Medium']">Expected End Date</span>
           <input
             type="text"
             value={education[ind].expectedEnd}
@@ -77,9 +81,7 @@ export default function FormEducation(props) {
             onMouseEnter={() => hoverEnterRm(`edu${ind}`)}
             onMouseLeave={() => hoverLeaveRm(`edu${ind}`)}
           >
-            <GoTrashcan
-              size="24"
-            />
+            <GoTrashcan size="24" />
           </button>
         </div>
       </form>
@@ -99,7 +101,10 @@ export default function FormEducation(props) {
         {ShowhHideBtn(eduStatus, togEdu)}
       </div>
       <hr />
-      <div className="section-content" style={{ display: eduStatus ? 'block' : 'none' }}>
+      <div
+        className="section-content"
+        style={{ display: eduStatus ? 'block' : 'none' }}
+      >
         {children}
         <div className="newBtnWrap">
           <button

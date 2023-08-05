@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import ShowhHideBtn from '../utils/ShowHideBtn';
+import ShowHideBtn from '../utils/ShowHideBtn';
 
 export default function FormHeader(props) {
   const {
@@ -10,7 +10,11 @@ export default function FormHeader(props) {
   function renderHeaderPc(name) {
     return (
       <label>
-        {name}
+        <span
+          className="font-['Roboto-Medium']"
+        >
+          {name}
+        </span>
         <input
           type="text"
           placeholder={name}
@@ -24,7 +28,7 @@ export default function FormHeader(props) {
     <div className="form-section">
       <div className="header-container">
         <h2 className="text-xl font-bold"> Identification </h2>
-        {ShowhHideBtn(headStatus, togHead)}
+        {ShowHideBtn(headStatus, togHead)}
       </div>
       <hr />
       <div className="section-content" style={{ display: headStatus ? 'block' : 'none' }}>

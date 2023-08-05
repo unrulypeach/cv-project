@@ -34,7 +34,11 @@ export default function FormExperience(props) {
     return (
       <form key={obj.id} className="form-piece-container" id={`form${obj.id}`}>
         <label>
-          Employer
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            Employer
+          </span>
           <input
             type="text"
             value={obj.name}
@@ -42,7 +46,11 @@ export default function FormExperience(props) {
           />
         </label>
         <label>
-          Position
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            Position
+          </span>
           <input
             type="text"
             value={obj.position}
@@ -50,7 +58,11 @@ export default function FormExperience(props) {
           />
         </label>
         <label>
-          City
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            City
+          </span>
           <input
             type="text"
             value={obj.city}
@@ -58,7 +70,11 @@ export default function FormExperience(props) {
           />
         </label>
         <label>
-          State
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            State
+          </span>
           <input
             type="text"
             value={obj.state}
@@ -66,7 +82,11 @@ export default function FormExperience(props) {
           />
         </label>
         <label>
-          Start Date
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            Start Date
+          </span>
           <input
             type="text"
             value={obj.start}
@@ -74,7 +94,11 @@ export default function FormExperience(props) {
           />
         </label>
         <label>
-          End Date
+          <span
+            className="font-['Roboto-Medium']"
+          >
+            End Date
+          </span>
           <input
             type="text"
             value={obj.end}
